@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package auth;
 
-import "proto/model.proto";
+import "msg-proto/model.proto";
 
 option go_package = "github.com/ArtyomArtamonov/msg/internal/server/proto";
 

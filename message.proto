@@ -3,7 +3,7 @@ syntax = "proto3";
 package message;
 
 import "google/protobuf/empty.proto";
-import "proto/model.proto";
+import "msg-proto/model.proto";
 
 option go_package = "github.com/ArtyomArtamonov/msg/internal/server/proto";
 
