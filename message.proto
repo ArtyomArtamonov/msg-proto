@@ -5,7 +5,7 @@ package message;
 import "google/protobuf/empty.proto";
 import "msg-proto/model.proto";
 
-option go_package = "github.com/ArtyomArtamonov/msg/internal/server/proto";
+option go_package = "github.com/ArtyomArtamonov/msg/internal/server/msg-proto";
 
 message MessageDelivery {
     model.Message message = 1;

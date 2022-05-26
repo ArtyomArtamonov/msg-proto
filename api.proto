@@ -5,7 +5,7 @@ import "msg-proto/model.proto";
 
 package api;
 
-option go_package = "github.com/ArtyomArtamonov/msg/internal/server/proto";
+option go_package = "github.com/ArtyomArtamonov/msg/internal/server/msg-proto";
 
 message CreateRoomRequest {
     string name = 1;
@@ -13,7 +13,7 @@ message CreateRoomRequest {
 }
 
 message ListRoomsRequest {
-    google.protobuf.StringValue page_token = 1;
+    google.protobuf.StringValue next_token = 1;
     int32 page_size = 2;
 }
 
@@ -25,11 +25,23 @@ message MessageRequest {
     }
 }
 
+message ListMessagesRequest {
+    google.protobuf.StringValue next_token = 1;
+    int32 page_size = 2;
+    string chat_id = 3;
+}
+
 service ApiService {
     rpc CreateRoom(CreateRoomRequest) returns (CreateRoomStatus);
     rpc ListRooms(ListRoomsRequest) returns (ListRoomsResponse);
 
     rpc SendMessage(MessageRequest) returns (MessageResponse);
+    rpc ListMessages(ListMessagesRequest) returns (ListMessagesResponse); 
+}
+
+message ListMessagesResponse {
+    google.protobuf.StringValue next_token = 1;
+    repeated model.Message messages = 2;
 }
 
 message MessageResponse {

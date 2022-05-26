@@ -4,7 +4,7 @@ package model;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ArtyomArtamonov/msg/internal/server/proto";
+option go_package = "github.com/ArtyomArtamonov/msg/internal/server/msg-proto";
 
 message Token {
     string access_token = 1;
